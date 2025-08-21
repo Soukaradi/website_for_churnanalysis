@@ -8,6 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Chosen Palette: Warm Neutrals with Subtle Accents -->
     <!-- Application Structure Plan: A thematic, single-page dashboard. The structure is designed for intuitive exploration, starting with a comprehensive "Project Overview", moving into "Data & Setup" (covering generation and schema), then a detailed "Key Analyses" section with all SQL queries and their outputs, followed by "Driving Insights & Solutions", and concluding with "Lessons Learned". This non-linear, thematic approach allows users to quickly grasp the main insights and explore areas of interest without being constrained by the linear flow of the original report. Navigation tabs control the visibility of each thematic section, creating a seamless SPA experience. This design prioritizes usability and quick synthesis of complex information. -->
     <!-- Visualization & Content Choices: 
@@ -87,13 +89,18 @@
             font-weight: 600;
             color: #a56a50; /* Primary accent for headers */
         }
-        /* Removed .icon-small as stars are removed */
+        .fa-icon {
+            margin-right: 0.5rem; /* Space between icon and text */
+            color: #a56a50; /* Match accent color */
+        }
     </style>
 </head>
 <body class="antialiased">
     <div class="container mx-auto p-4 md:p-8">
         <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-[#3f3c3a] mb-2">📊 StreamVerse Customer Churn Analysis & Retention Strategy</h1>
+            <h1 class="text-4xl font-bold text-[#3f3c3a] mb-2">
+                <i class="fas fa-chart-line fa-lg fa-icon"></i> StreamVerse Customer Churn Analysis & Retention Strategy
+            </h1>
             <p class="text-lg text-[#6e6a67]">A data-driven project to understand, predict, and reduce customer churn for a subscription service.</p>
         </header>
 
@@ -113,11 +120,11 @@
                     <p class="text-[#6e6a67]">This section sets the stage for our data-driven journey. It explains the core challenge of customer churn, the ambition behind this project, and the comprehensive scope of our analysis to build a robust retention strategy for StreamVerse.</p>
                 </div>
                 <div class="kpi-card text-left mb-6">
-                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]">About This Project: Keeping Our Customers Hooked!</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-bullseye fa-icon"></i> About This Project: Keeping Our Customers Hooked!</h3>
                     <p class="text-[#6e6a67]">Ever wondered why some people cancel their streaming subscriptions while others stay loyal for years? That's the core question I set out to answer! For any subscription business like StreamVerse, <strong>customer churn</strong> (when customers leave) is a major challenge, directly impacting revenue and growth. My goal here was to dig into customer behavior data, spot those early warning signs of churn, and come up with smart, proactive ways to retain our valuable customers. It's all about turning raw data into actionable insights to boost customer lifetime value!</p>
                 </div>
                 <div class="kpi-card text-left">
-                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]">Project Scope: Our Data Detective Work</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-search fa-icon"></i> Project Scope: Our Data Detective Work</h3>
                     <p class="text-[#6e6a67]">This project is a full, end-to-end journey in data analytics, focusing on customer data from StreamVerse. Here’s a peek into the detective work involved:</p>
                     <ul class="list-disc list-inside text-[#6e6a67] mt-4 space-y-2">
                         <li><strong>Generating Realistic Data</strong>: I crafted synthetic, yet realistic, data covering customer demographics, subscription history, usage patterns, and even support interactions. The key was baking in "clues" about churn right from the start!</li>
@@ -136,7 +143,7 @@
                     <p class="text-[#6e6a67]">This section dives into the technical foundation of the project: how I generated the realistic dataset using Python and designed the robust PostgreSQL database schema to house our information.</p>
                 </div>
                 <div class="kpi-card text-left mb-6">
-                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]">Data Generation: Bringing StreamVerse to Life with Python</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-flask fa-icon"></i> Data Generation: Bringing StreamVerse to Life with Python</h3>
                     <p class="text-[#6e6a67]">To simulate real-world scenarios, I used Python's `pandas` for data handling and `Faker` to generate synthetic, interconnected datasets. The critical step here was to <strong>build in realistic variations and correlations</strong> from the outset. For example, I intentionally made customers on the 'Premium' plan more likely to churn and linked higher churn to unresolved support tickets. This approach ensures our analysis yields genuine, actionable insights instead of uniform results.</p>
                     <h4 class="text-lg font-semibold text-[#6e6a67] mt-4 mb-2">Key Data Points Generated:</h4>
                     <ul class="list-disc list-inside text-[#6e6a67] space-y-1">
@@ -149,7 +156,7 @@
                 </div>
 
                 <div class="kpi-card text-left">
-                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]">Database Setup: PostgreSQL Powerhouse</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-database fa-icon"></i> Database Setup: PostgreSQL Powerhouse</h3>
                     <p class="text-[#6e6a67]">With our data ready, the next step was building a reliable home for it. I designed a relational database schema in PostgreSQL to meticulously track every aspect of a customer's journey, ensuring data integrity and efficient querying.</p>
                     <h4 class="text-lg font-semibold text-[#6e6a67] mt-4 mb-2">Table Schemas:</h4>
                     <ul class="list-disc list-inside text-[#6e6a67] space-y-2">
@@ -438,7 +445,7 @@ ORDER BY
                 </div>
 
                 <div class="kpi-card text-left mb-6">
-                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]">Driving Insights: What Our Data is Truly Telling Us</h3>
+                    <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-lightbulb fa-icon"></i> Driving Insights: What Our Data is Truly Telling Us</h3>
                     <p class="text-[#6e6a67]">Our deep dive into StreamVerse's customer data paints a clear picture: churn isn't a mystery; it's a direct response to specific pain points. The data reveals that our churn problem stems from a blend of interconnected factors:</p>
                     <ul class="list-disc list-inside text-[#6e6a67] mt-4 space-y-2">
                         <li><strong>Value Perception Mismatch</strong>: Especially for our Premium users, the perceived value isn't matching the higher cost, leading to dissatisfaction.</li>
@@ -451,22 +458,22 @@ ORDER BY
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="kpi-card text-left">
-                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]">1. Revamp the Premium Plan's Value (and Pricing!)</h3>
+                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-dollar-sign fa-icon"></i> 1. Revamp the Premium Plan's Value (and Pricing!)</h3>
                         <p class="text-[#6e6a67] mb-2"><strong>Problem</strong>: High churn on the Premium plan indicates its value does not justify the cost.</p>
                         <p class="text-[#6e6a67]"><strong>Solution</strong>: Introduce a "Premium Lite" tier, invest in truly exclusive content, and run re-onboarding campaigns to highlight its unique benefits.</p>
                     </div>
                     <div class="kpi-card text-left">
-                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]">2. Ignite Re-engagement with Personalization</h3>
+                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-user-friends fa-icon"></i> 2. Ignite Re-engagement with Personalization</h3>
                         <p class="text-[#6e6a67] mb-2"><strong>Problem</strong>: Customers with low watch time are likely to churn.</p>
                         <p class="text-[#6e6a67]"><strong>Solution</strong>: Implement automated "We Miss You" email campaigns with personalized recommendations for users whose activity drops, and use smart notifications for new content.</p>
                     </div>
                     <div class="kpi-card text-left">
-                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]">3. Supercharge Customer Support</h3>
+                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-headset fa-icon"></i> 3. Supercharge Customer Support</h3>
                         <p class="text-[#6e6a67] mb-2"><strong>Problem</strong>: Slow ticket resolution and unresolved issues are directly causing churn.</p>
                         <p class="text-[#6e6a67]"><strong>Solution</strong>: Create a priority queue for at-risk customers, empower agents with 360-degree customer views, and use automated follow-ups to ensure issue resolution and satisfaction.</p>
                     </div>
                     <div class="kpi-card text-left">
-                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]">4. Polish Platform Experience & Fill Content Voids</h3>
+                        <h3 class="text-xl font-bold mb-2 text-[#a56a50]"><i class="fas fa-film fa-icon"></i> 4. Polish Platform Experience & Fill Content Voids</h3>
                         <p class="text-[#6e6a67] mb-2"><strong>Problem</strong>: The high churn rate for Tablet users and the lack of engagement with certain genres point to technical and content problems.</p>
                         <p class="text-[#6e6a67]"><strong>Solution</strong>: Conduct a UX audit on the tablet app and strategically invest in new, high-quality documentary content in genres that show low engagement among churned users.</p>
                     </div>
@@ -910,3 +917,4 @@ ORDER BY
     </script>
 </body>
 </html>
+
