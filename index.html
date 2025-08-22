@@ -391,8 +391,8 @@ WHERE
 GROUP BY
     uh.genre
 ORDER BY
-    avg_minutes_watched DESC;
-```
+    avg_minutes_watched DESC;</code></pre>
+
 
                     <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output (for Churned Customers):</h4>
                     <table class="data-table">
@@ -432,8 +432,8 @@ JOIN
 GROUP BY
     uh.device
 ORDER BY
-    churn_rate_by_device DESC;
-```
+    churn_rate_by_device DESC;</code></pre>
+
 
                     <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output:</h4>
                     <table class="data-table">
@@ -478,8 +478,8 @@ WHERE
 GROUP BY
     resolution_category
 ORDER BY
-    churn_rate DESC;
-```
+    churn_rate DESC;</code></pre>
+
 
                     <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output:</h4>
                     <table class="data-table">
@@ -496,7 +496,7 @@ ORDER BY
                             <tr><td>Quickly Resolved (<3 days)</td><td>1500</td><td>0.18</td></tr>
                         </tbody>
                     </table>
-                    <p class="text-[#6e6a67] mt-2"><strong>Insight</strong>: Customers whose issues take longer to resolve (<strong>`>7 days`</strong>) have a **significantly higher churn rate (45%)**. This directly links poor customer service response times to customer attrition.</p>
+                    <p class="text-[#6e6a67] mt-2"><strong>Insight</strong>: Customers whose issues take longer to resolve (<strong>>7 days</strong>) have a <strong>significantly higher churn rate (45%)</strong>. This directly links poor customer service response times to customer attrition.</p>
                     <div class="chart-container h-80 md:h-96 mt-6">
                         <canvas id="supportTicketChurnChartQuery"></canvas>
                     </div>
@@ -832,6 +832,8 @@ ORDER BY
             
             const horizontalChartOptions = JSON.parse(JSON.stringify(defaultChartOptions));
             horizontalChartOptions.indexAxis = 'y';
+            horizontalChartOptions.scales.x.title.text = 'Avg. Minutes Watched'; // Default for horizontal, can be overridden
+            horizontalChartOptions.scales.y.title.text = 'Genre'; // Default for horizontal, can be overridden
             horizontalChartOptions.scales.x.grid.color = chartGridColor;
             horizontalChartOptions.scales.y.grid.color = 'transparent';
             // Adjust datalabels for horizontal bars
@@ -975,4 +977,3 @@ ORDER BY
     </script>
 </body>
 </html>
-
