@@ -55,7 +55,7 @@
             border-radius: 0.5rem; /* Less rounded for individual buttons */
             text-align: center;
             min-width: 120px;
-            /* Removed white-space: nowrap; to allow text wrapping on small screens */
+            white-space: nowrap; /* Prevent text wrapping on buttons */
         }
         .nav-btn.active {
             background-color: #eaddd7; /* Light warm beige for active state */
@@ -394,15 +394,24 @@ ORDER BY
     avg_minutes_watched DESC;
 ```
 
-**Sample Output (for Churned Customers)**:
-| Genre | Avg. Minutes Watched | Total Sessions Churned |
-|---|---|---|
-| Action | 135.2 | 2500 |
-| Comedy | 130.5 | 2200 |
-| Sci-Fi | 128.0 | 1800 |
-| Drama | 120.1 | 2000 |
-| Documentary | 95.0 | 500 |
-**Insight**: While churned customers watch less overall, their engagement with <strong>Documentary content is notably lower</strong> compared to other genres. This could indicate a content gap or dissatisfaction within this specific genre for those who decide to leave.</p>
+                    <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output (for Churned Customers):</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Genre</th>
+                                <th>Avg. Minutes Watched</th>
+                                <th>Total Sessions Churned</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Action</td><td>135.2</td><td>2500</td></tr>
+                            <tr><td>Comedy</td><td>130.5</td><td>2200</td></tr>
+                            <tr><td>Sci-Fi</td><td>128.0</td><td>1800</td></tr>
+                            <tr><td>Drama</td><td>120.1</td><td>2000</td></tr>
+                            <tr><td>Documentary</td><td>95.0</td><td>500</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-[#6e6a67] mt-2"><strong>Insight</strong>: While churned customers watch less overall, their engagement with <strong>Documentary content is notably lower</strong> compared to other genres. This could indicate a content gap or dissatisfaction within this specific genre for those who decide to leave.</p>
                     <div class="chart-container h-80 md:h-96 mt-6">
                         <canvas id="genreChartQuery"></canvas>
                     </div>
@@ -426,14 +435,23 @@ ORDER BY
     churn_rate_by_device DESC;
 ```
 
-**Sample Output**:
-| Device | Total Sessions | Churn Rate |
-|---|---|---|
-| Tablet | 12000 | 0.35 |
-| Mobile | 15000 | 0.28 |
-| Laptop | 10000 | 0.24 |
-| Smart TV | 13000 | 0.20 |
-**Insight**: Users primarily watching on <strong>Tablet devices have a noticeably higher churn rate</strong>. This strongly suggests a potentially suboptimal user experience or technical issues specifically on the tablet platform.</p>
+                    <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output:</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Device</th>
+                                <th>Total Sessions</th>
+                                <th>Churn Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Tablet</td><td>12000</td><td>0.35</td></tr>
+                            <tr><td>Mobile</td><td>15000</td><td>0.28</td></tr>
+                            <tr><td>Laptop</td><td>10000</td><td>0.24</td></tr>
+                            <tr><td>Smart TV</td><td>13000</td><td>0.20</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-[#6e6a67] mt-2"><strong>Insight</strong>: Users primarily watching on <strong>Tablet devices have a noticeably higher churn rate</strong>. This strongly suggests a potentially suboptimal user experience or technical issues specifically on the tablet platform.</p>
                     <div class="chart-container h-80 md:h-96 mt-6">
                         <canvas id="deviceChurnChartQuery"></canvas>
                     </div>
@@ -463,13 +481,25 @@ ORDER BY
     churn_rate DESC;
 ```
 
-**Sample Output**:
-| Resolution Category | Total Customers with Tickets | Churn Rate |
-|---|---|---|
-| Slow Resolution (>7 days) | 1000 | 0.45 |
-| Average Resolution (3-7 days) | 2500 | 0.28 |
-| Quickly Resolved (<3 days) | 1500 | 0.18 |
-**Insight**: Customers whose issues take longer to resolve (<strong>`>7 days`</strong>) have a **significantly higher churn rate (45%)**. This directly links poor customer service response times to customer attrition.</p>
+                    <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output:</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Resolution Category</th>
+                                <th>Total Customers with Tickets</th>
+                                <th>Churn Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Slow Resolution (>7 days)</td><td>1000</td><td>0.45</td></tr>
+                            <tr><td>Average Resolution (3-7 days)</td><td>2500</td><td>0.28</td></tr>
+                            <tr><td>Quickly Resolved (<3 days)</td><td>1500</td><td>0.18</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-[#6e6a67] mt-2"><strong>Insight</strong>: Customers whose issues take longer to resolve (<strong>`>7 days`</strong>) have a **significantly higher churn rate (45%)**. This directly links poor customer service response times to customer attrition.</p>
+                    <div class="chart-container h-80 md:h-96 mt-6">
+                        <canvas id="supportTicketChurnChartQuery"></canvas>
+                    </div>
                 </div>
             </section>
 
@@ -945,3 +975,4 @@ ORDER BY
     </script>
 </body>
 </html>
+
