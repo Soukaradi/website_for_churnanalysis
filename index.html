@@ -54,8 +54,8 @@
             padding-right: 1rem; /* px-4 */
             border-radius: 0.5rem; /* Less rounded for individual buttons */
             text-align: center;
-            min-width: 120px;
-            white-space: nowrap; /* Prevent text wrapping on buttons */
+            /* Removed min-width to allow flexible shrinking on mobile */
+            /* Removed white-space: nowrap; to allow text wrapping on small screens */
         }
         .nav-btn.active {
             background-color: #eaddd7; /* Light warm beige for active state */
@@ -147,7 +147,7 @@
             <p class="text-lg text-[#6e6a67]">A data-driven project to understand, predict, and reduce customer churn for a subscription service.</p>
         </header>
 
-         <nav class="flex justify-center mb-8 bg-white p-2 rounded-xl shadow-sm border border-[#eaddd7] max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+        <nav class="flex justify-center mb-8 bg-white p-2 rounded-xl shadow-sm border border-[#eaddd7] max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
             <button class="nav-btn active" data-target="project-overview"><strong>Project Overview</strong></button>
             <button class="nav-btn" data-target="dashboard-summary"><strong>Dashboard Summary</strong></button>
             <button class="nav-btn" data-target="data-schema"><strong>Data & Setup</strong></button>
@@ -155,7 +155,6 @@
             <button class="nav-btn" data-target="insights-solutions"><strong>Insights & Solutions</strong></button>
             <button class="nav-btn" data-target="lessons-learned"><strong>Lessons Learned</strong></button>
         </nav>
-
 
         <main>
             <!-- Project Overview Section (Textual Introduction) -->
@@ -392,8 +391,8 @@ WHERE
 GROUP BY
     uh.genre
 ORDER BY
-    avg_minutes_watched DESC;</code></pre>
-
+    avg_minutes_watched DESC;
+```
 
                     <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output (for Churned Customers):</h4>
                     <table class="data-table">
@@ -433,8 +432,8 @@ JOIN
 GROUP BY
     uh.device
 ORDER BY
-    churn_rate_by_device DESC;</code></pre>
-
+    churn_rate_by_device DESC;
+```
 
                     <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output:</h4>
                     <table class="data-table">
@@ -479,8 +478,8 @@ WHERE
 GROUP BY
     resolution_category
 ORDER BY
-    churn_rate DESC;</code></pre>
-
+    churn_rate DESC;
+```
 
                     <h4 class="text-lg font-semibold text-[#6e6a67] mb-2">Sample Output:</h4>
                     <table class="data-table">
@@ -497,7 +496,7 @@ ORDER BY
                             <tr><td>Quickly Resolved (<3 days)</td><td>1500</td><td>0.18</td></tr>
                         </tbody>
                     </table>
-                    <p class="text-[#6e6a67] mt-2"><strong>Insight</strong>: Customers whose issues take longer to resolve (<strong>>7 days</strong>) have a <strong>significantly higher churn rate (45%)</strong>. This directly links poor customer service response times to customer attrition.</p>
+                    <p class="text-[#6e6a67] mt-2"><strong>Insight</strong>: Customers whose issues take longer to resolve (<strong>`>7 days`</strong>) have a **significantly higher churn rate (45%)**. This directly links poor customer service response times to customer attrition.</p>
                     <div class="chart-container h-80 md:h-96 mt-6">
                         <canvas id="supportTicketChurnChartQuery"></canvas>
                     </div>
@@ -833,8 +832,6 @@ ORDER BY
             
             const horizontalChartOptions = JSON.parse(JSON.stringify(defaultChartOptions));
             horizontalChartOptions.indexAxis = 'y';
-            horizontalChartOptions.scales.x.title.text = 'Avg. Minutes Watched'; // Default for horizontal, can be overridden
-            horizontalChartOptions.scales.y.title.text = 'Genre'; // Default for horizontal, can be overridden
             horizontalChartOptions.scales.x.grid.color = chartGridColor;
             horizontalChartOptions.scales.y.grid.color = 'transparent';
             // Adjust datalabels for horizontal bars
